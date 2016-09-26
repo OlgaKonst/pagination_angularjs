@@ -1,0 +1,22 @@
+{
+  "name": "my_pagination",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlgaKonst/pagination_angularjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlgaKonst/pagination_angularjs/issues"
+  },
+  "homepage": "https://github.com/OlgaKonst/pagination_angularjs#readme",
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
