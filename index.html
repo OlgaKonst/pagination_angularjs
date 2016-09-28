@@ -2,14 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="style.css" rel="stylesheet">
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="./app/my-app.module.js"></script>
+  <script src="./app/http.service.js"></script>
   <script src="./app/main.controller.js"></script>
   <title>Title</title>
 </head>
 <body ng-app="myApp">
-<div ng-controller="MainController">
+  <div ng-controller="MainController">
+    <h3>{{count}}</h3>
+    <select ng-model="count" ng-options="opt as opt for opt in options">
+      <option value="">All</option>
+    </select>
+    <div class="pagination">
+      <ul>
+          <li ng-repeat="link in pagination track by $index"
+              ng-class="{active: $index === currentPage}"
+              ng-click="changePage($index)">
+            <a href="#">
+              {{$index + 1}}
+            </a>
+          </li>
+      </ul>
+    </div>
 
-</div>
+      <ul>
+        <button ng-repeat="link in pagination track by $index"
+                ng-class="{active: $index === currentPage}"
+                ng-click="changePage($index)">
+            {{$index + 1}}
+        </button>
+      </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Active</th>
+          <th>Name</th>
+          <th>Picture</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in users | limitTo:count:offset">
+          <td>{{user.id}}</td>
+          <td><input type="checkbox"ng-model="user.isActive"></td>
+          <td>{{user.name}}</td>
+          <td><img ng-src="user.picture"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
